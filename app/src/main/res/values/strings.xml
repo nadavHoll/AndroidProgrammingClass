@@ -6,4 +6,6 @@
     <string name="with_food">With food</string>
     <string name="make_order">Make order</string>
     <string name="seekBar_max">1000</string>
+    <string name="title_activity_order_sent">OrderSent</string>
+    <string name="order_sent">Your order has been sent!</string>
 </resources>

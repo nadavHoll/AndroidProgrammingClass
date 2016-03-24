@@ -51,9 +51,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/make_order"
-        android:onClick="sendToast"
+        android:onClick="makeOrderClick"
         android:enabled="true"
-        android:id="@+id/make_order_button" />
+        android:id="@+id/make_order_button"
+        android:layout_marginTop="@dimen/order_form_button_margin" />
 
 
 </LinearLayout>
