@@ -1,5 +1,6 @@
 package com.nadavh.ex1;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -13,7 +14,6 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.SeekBar;
-import android.widget.Toast;
 
 public class Ex1 extends AppCompatActivity {
 
@@ -97,8 +97,9 @@ public class Ex1 extends AppCompatActivity {
 
     }
 
-    public void sendToast(View view){
-        Toast.makeText(getApplicationContext(),"Order sent",Toast.LENGTH_SHORT).show();
+    public void makeOrderClick(View view){
+        Intent intent = new Intent(this, orderSent.class);
+        startActivity(intent);
     }
 
     @Override
