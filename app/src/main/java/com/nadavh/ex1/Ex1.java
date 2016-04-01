@@ -14,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.SeekBar;
+import android.widget.Toast;
 
 public class Ex1 extends AppCompatActivity {
 
@@ -59,10 +60,16 @@ public class Ex1 extends AppCompatActivity {
                 @Override
                 public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
                     numOfSheepEditText.setText(String.valueOf(progress));
-                    if (withFoodCheckBox.isChecked() && (progress > 0)){
-                        makeOrderButton.setEnabled(true);
+                    if (withFoodCheckBox.isChecked() && (progress > 0)) {
+                        if (!makeOrderButton.isEnabled()) {
+                            makeOrderButton.setEnabled(true);
+                            invalidateOptionsMenu();
+                        }
                     } else {
-                        makeOrderButton.setEnabled(false);
+                        if (makeOrderButton.isEnabled()) {
+                            makeOrderButton.setEnabled(false);
+                            invalidateOptionsMenu();
+                        }
                     }
                 }
 
@@ -81,9 +88,15 @@ public class Ex1 extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked && (sheepSeekBar.getProgress() > 0)) {
-                        makeOrderButton.setEnabled(true);
+                        if (!makeOrderButton.isEnabled()) {
+                            makeOrderButton.setEnabled(true);
+                            invalidateOptionsMenu();
+                        }
                     } else {
-                        makeOrderButton.setEnabled(false);
+                        if (makeOrderButton.isEnabled()) {
+                            makeOrderButton.setEnabled(false);
+                            invalidateOptionsMenu();
+                        }
                     }
                 }
             });
@@ -102,10 +115,21 @@ public class Ex1 extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void selectClick(View view){
+        Toast.makeText(getApplicationContext(),"Under Construction",Toast.LENGTH_SHORT).show();
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_ex1, menu);
+        try {
+            final SeekBar sheepSeekBar = (SeekBar) findViewById(R.id.num_of_sheep_seekBar);
+            final CheckBox withFoodCheckBox = (CheckBox) findViewById(R.id.with_food_checkBox);
+            menu.findItem(R.id.appbar_item_send_order).setVisible(sheepSeekBar.getProgress()>0 && withFoodCheckBox.isChecked());
+        } catch (Exception e) {
+            Toast.makeText(getApplicationContext(),"Failed to create appbar button",Toast.LENGTH_SHORT).show();
+        }
         return true;
     }
 
@@ -114,6 +138,28 @@ public class Ex1 extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
+        switch(item.getItemId()){
+            case R.id.appbar_item_send_order:
+                try {
+                    final SeekBar sheepSeekBar = (SeekBar) findViewById(R.id.num_of_sheep_seekBar);
+                    final CheckBox withFoodCheckBox = (CheckBox) findViewById(R.id.with_food_checkBox);
+                    if (sheepSeekBar.getProgress()>0 && withFoodCheckBox.isChecked()){
+                        Intent intent = new Intent(this,orderSent.class);
+                        startActivity(intent);
+                    }
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(),"Failed to initiate intent",Toast.LENGTH_SHORT).show();
+                }
+                return true;
+            case R.id.action_settings:
+                return true;
+            default:
+                // if we got here, the user's action was not recognized
+                // invoke the superclass to handle it
+                return super.onOptionsItemSelected(item);
+        }
+
+        /**
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
@@ -122,5 +168,6 @@ public class Ex1 extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+        **/
     }
 }

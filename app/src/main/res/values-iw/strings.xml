@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">תר3</string>
+    <string name="action_settings">הגדרות</string>
+    <string name="sheep_order_form">טופס הזמנת כבשים</string>
+    <string name="sheep_order_user_instruction">נא בחר את מספר הכבשים</string>
+    <string name="with_food">כולל מזון</string>
+    <string name="make_order">הזמן</string>
+    <string name="seekBar_max">1000</string>
+    <string name="title_activity_order_sent">הזמנה נשלחה</string>
+    <string name="order_sent">הזמנתך נשלחה!</string>
+    <string name="selectButton">בחר</string>
+    <string name="appbar_item_send_order">שלח הזמנה</string>
+</resources>
