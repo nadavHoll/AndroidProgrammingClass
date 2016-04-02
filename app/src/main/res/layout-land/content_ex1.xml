@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="@dimen/order_form_text_margin"
-        android:id="@+id/textView"
+        android:id="@id/text_sheep_order_form_title"
         android:text="@string/sheep_order_form"
         android:textSize="@dimen/main_text_size"
         />
@@ -23,49 +23,59 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/num_of_sheep_editText"
+        android:layout_above="@id/num_of_sheep_editText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:text="@string/sheep_order_user_instruction"
         />
 
     <EditText
-        android:layout_centerVertical="true"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toLeftOf="@+id/with_food_checkBox"
+        android:layout_above="@id/num_of_sheep_seekBar"
+        android:layout_toLeftOf="@id/with_food_checkBox"
+        android:layout_toStartOf="@id/with_food_checkBox"
         android:inputType="numberDecimal"
         android:ems="20"
-        android:id="@+id/num_of_sheep_editText"
+        android:id="@id/num_of_sheep_editText"
+        />
+
+    <SeekBar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/select_button"
+        android:max="@string/seekBar_max"
+        android:id="@id/num_of_sheep_seekBar"
         />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignBottom="@id/num_of_sheep_editText"
         android:text="@string/with_food"
         android:id="@id/with_food_checkBox"
         />
 
-    <SeekBar
-        android:layout_width="match_parent"
+    <Button
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/num_of_sheep_editText"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:max="@string/seekBar_max"
-        android:id="@+id/num_of_sheep_seekBar" />
+        android:layout_above="@id/make_order_button"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:text="@string/selectButton"
+        android:onClick="selectClick"
+        android:id="@id/select_button"
+        />
 
     <Button
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="@dimen/order_form_button_margin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:text="@string/make_order"
         android:onClick="makeOrderClick"
-        android:enabled="true"
-        android:id="@+id/make_order_button"
+        android:id="@id/make_order_button"
         />
 
 

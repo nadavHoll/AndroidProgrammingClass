@@ -2,8 +2,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.nadavh.ex1.Ex1" >
+
     <item android:id="@+id/action_settings"
         android:title="@string/action_settings"
         android:orderInCategory="100"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/appbar_item_send_order"
+        android:icon="@drawable/appbar_item_icon_send_order"
+        android:title="@string/appbar_item_send_order"
+        app:showAsAction="ifRoom"
+        />
+
 </menu>

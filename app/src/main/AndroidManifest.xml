@@ -27,6 +27,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.nadavh.ex1.Ex1" />
         </activity>
+        <activity
+            android:name=".SelectFood"
+            android:label="@string/title_activity_select_food"
+            android:parentActivityName=".Ex1"
+            android:theme="@style/AppTheme.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.nadavh.ex1.Ex1" />
+        </activity>
     </application>
 
 </manifest>
