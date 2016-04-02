@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class Ex1 extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -116,7 +117,8 @@ public class Ex1 extends AppCompatActivity {
     }
 
     public void selectClick(View view){
-        Toast.makeText(getApplicationContext(),"Under Construction",Toast.LENGTH_SHORT).show();
+        Intent intentSelectFood = new Intent(this, SelectFood.class);
+        startActivityForResult(intentSelectFood, Integer.parseInt(this.getString(R.string.SELECT_FOOD_REQUEST)));
     }
 
     @Override
@@ -159,6 +161,7 @@ public class Ex1 extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
 
+
         /**
         int id = item.getItemId();
 
@@ -169,5 +172,33 @@ public class Ex1 extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
         **/
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data){
+        if (requestCode == Integer.parseInt(this.getString(R.string.SELECT_FOOD_REQUEST))) {
+            if (resultCode == RESULT_OK){
+                String[] foodArray = this.getResources().getStringArray(R.array.food_array);
+                switch(data.getIntExtra("selectedSheepFood",5)){
+                    case 0:
+                        Toast.makeText(getApplicationContext(),foodArray[0],Toast.LENGTH_SHORT).show();
+                        break;
+                    case 1:
+                        Toast.makeText(getApplicationContext(),foodArray[1],Toast.LENGTH_SHORT).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getApplicationContext(),foodArray[2],Toast.LENGTH_SHORT).show();
+                        break;
+                    case 3:
+                        Toast.makeText(getApplicationContext(),foodArray[3],Toast.LENGTH_SHORT).show();
+                        break;
+                    case 4:
+                        Toast.makeText(getApplicationContext(),foodArray[4],Toast.LENGTH_SHORT).show();
+                        break;
+                    default:
+                        Toast.makeText(getApplicationContext(),"intent data does not contain 'selectedSheepFood'",Toast.LENGTH_SHORT).show();
+                }
+            }
+        }
     }
 }

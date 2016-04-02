@@ -31,6 +31,7 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:text="@string/sheep_order_user_instruction"
+        android:id="@+id/text_sheep_order_user_instruction"
         />
 
     <EditText

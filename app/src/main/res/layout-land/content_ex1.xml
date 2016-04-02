@@ -32,7 +32,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerVertical="true"
+        android:layout_above="@id/num_of_sheep_seekBar"
         android:layout_toLeftOf="@id/with_food_checkBox"
         android:layout_toStartOf="@id/with_food_checkBox"
         android:inputType="numberDecimal"
@@ -43,7 +43,7 @@
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/num_of_sheep_editText"
+        android:layout_above="@id/select_button"
         android:max="@string/seekBar_max"
         android:id="@id/num_of_sheep_seekBar"
         />
@@ -61,7 +61,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/num_of_sheep_seekBar"
+        android:layout_above="@id/make_order_button"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:text="@string/selectButton"
@@ -72,7 +72,7 @@
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/select_button"
+        android:layout_alignParentBottom="true"
         android:text="@string/make_order"
         android:onClick="makeOrderClick"
         android:id="@id/make_order_button"

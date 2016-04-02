@@ -10,4 +10,15 @@
     <string name="order_sent">Your order has been sent!</string>
     <string name="selectButton">Select</string>
     <string name="appbar_item_send_order">Send Order</string>
+    <string name="title_activity_select_food">Select Food</string>
+
+    <string-array name="food_array">
+        <item>Hay</item>
+        <item>Soybean</item>
+        <item>Silage</item>
+        <item>Grass</item>
+        <item>Wheat Grain</item>
+    </string-array>
+
+    <string name="SELECT_FOOD_REQUEST">15</string>
 </resources>

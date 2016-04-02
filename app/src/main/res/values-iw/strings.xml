@@ -11,4 +11,14 @@
     <string name="order_sent">הזמנתך נשלחה!</string>
     <string name="selectButton">בחר</string>
     <string name="appbar_item_send_order">שלח הזמנה</string>
+    <string name="title_activity_select_food">בחר מזון</string>
+
+    <string-array name="food_array">
+        <item>חציר</item>
+        <item>סויה</item>
+        <item>תחמיץ</item>
+        <item>עשב</item>
+        <item>גרעיני חיטה</item>
+    </string-array>
+
 </resources>
